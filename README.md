@@ -35,7 +35,7 @@ pip install -r requirements.txt
 2. Set up environment variables in `.env`:
 ```
 GCP_PROJECT=your-project-id
-DATASET_ID=nps_barb
+DATASET_ID=your-dataset-id
 GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account-key.json
 ```
 
@@ -54,12 +54,12 @@ gcloud run deploy barb-api \
   --source . \
   --region us-central1 \
   --allow-unauthenticated \
-  --set-env-vars GCP_PROJECT=your-project-id,DATASET_ID=nps_barb
+  --set-env-vars GCP_PROJECT=your-project-id,DATASET_ID=your-dataset-id
 ```
 
 ## Data Source
 
-Data is sourced from the National Parks Service API and processed through dbt transformations. See the [personal-dbt](https://github.com/joshuafortunatus/personal-dbt) repository for data pipeline details.
+Data is sourced from the National Parks Service API and processed through dbt transformations.
 
 ## License
 
