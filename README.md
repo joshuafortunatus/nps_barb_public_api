@@ -1,5 +1,9 @@
 # BARB API
 
+[![API Status](https://img.shields.io/badge/status-live-brightgreen)](https://barb-api-658225020507.us-central1.run.app/docs)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/)
+
 Browser for Adventuring, Recreation, and Backpacking - A public API for National Parks Service data.
 
 ## Live API
@@ -83,6 +87,39 @@ async function getCampgrounds(parkCode) {
 }
 ```
 
+## Response Format
+
+All endpoints return JSON. Example response from `/parks/YOSE`:
+```json
+{
+  "park_id": "77E0D7F0-1942-494A-ACE2-9004D2BDC59E",
+  "park_code": "YOSE",
+  "park_short_name": "Yosemite",
+  "park_full_name": "Yosemite National Park",
+  "park_description": "Not just a great valley, but a shrine to human foresight...",
+  "latitude": 37.8651,
+  "longitude": -119.5383,
+  "park_url": "https://www.nps.gov/yose/index.htm",
+  "count_of_campgrounds": 13,
+  "count_of_activities": 45,
+  "count_of_alerts": 3
+}
+```
+
+### Query Parameters
+
+- `park_code` - Filter by specific park (e.g., `YOSE`, `GRCA`)
+- `limit` - Maximum number of results (default: 100, max: 1000)
+- `category` - Filter alerts by category (alerts endpoint only)
+- `emergency_only` - Boolean to show only emergency alerts (alerts endpoint only)
+
+## Usage Guidelines
+
+- **No authentication required** - The API is publicly accessible
+- **No rate limits** - Currently no rate limiting enforced
+- **Best practices** - Please cache responses when possible to reduce load
+- **Data freshness** - Data is refreshed daily from NPS sources
+
 ## Local Development
 
 1. Install dependencies:
@@ -114,6 +151,18 @@ gcloud run deploy barb-api \
   --allow-unauthenticated \
   --set-env-vars GCP_PROJECT_ID=your-project-id,DATASET_ID=your-dataset-id
 ```
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+Please ensure your code follows the existing style and includes appropriate documentation.
 
 ## Data Source
 
