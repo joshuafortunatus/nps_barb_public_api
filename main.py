@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Query, HTTPException
+from fastapi.middleware.cors import CORSMiddleware 
 from google.cloud import bigquery
 from pydantic import BaseModel
 from typing import Optional, List
@@ -8,6 +9,14 @@ app = FastAPI(
     title="BARB API",
     description="Browser for Adventuring, Recreation, and Backpacking - NPS Data API",
     version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 client = bigquery.Client(project=os.getenv('GCP_PROJECT_ID'))
