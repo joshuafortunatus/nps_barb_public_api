@@ -2,7 +2,8 @@ from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware 
 from google.cloud import bigquery
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional, List, Union
+from datetime import date
 import os
 
 app = FastAPI(
@@ -99,13 +100,13 @@ class Event(BaseModel):
     park_code: str
     park_short_name: Optional[str]
     park_full_name: Optional[str]
-    event_start_date: Optional[str]
+    event_start_date: Optional[Union[str, date]]
     is_recurring: Optional[bool]
     is_all_day: Optional[bool]
     is_free: Optional[bool]
     is_registration_required: Optional[bool]
     registration_url: Optional[str]
-    event_end_date: Optional[str]
+    event_end_date: Optional[Union[str, date]]
     event_image_url: Optional[str]
 
 class Hike(BaseModel):
