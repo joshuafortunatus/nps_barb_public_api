@@ -183,7 +183,6 @@ class Tour(BaseModel):
 class Boundary(BaseModel):
     park_code: str
     park_boundary_geometry_id: str
-    loaded_at_utc: Optional[str]
     boundary_type: Optional[str]
     geometry_json: Optional[str]
     park_short_name: Optional[str]
@@ -416,7 +415,7 @@ async def get_boundaries(
 ):
     """Get park boundaries"""
     query = f"""
-    SELECT park_code, park_boundary_geometry_id, loaded_at_utc, boundary_type,
+    SELECT park_code, park_boundary_geometry_id, boundary_type,
            geometry_json, park_short_name, park_full_name
     FROM `{DATASET}.nps__mart_national_park_boundaries`
     WHERE 1=1
