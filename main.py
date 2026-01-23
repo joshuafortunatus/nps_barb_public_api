@@ -87,7 +87,7 @@ class Campground(BaseModel):
     reservation_details: Optional[str]
     accessibility_classifications: Optional[str]
     campground_image_url: Optional[str]
-    is_reservation_url: Optional[str]
+    is_reservation_url: Optional[bool]
 
 class Event(BaseModel):
     event_id: str
