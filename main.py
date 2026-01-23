@@ -41,10 +41,6 @@ class Park(BaseModel):
     park_image_caption: Optional[str]
     park_image_url: Optional[str]
     amenities_json: Optional[str]
-    count_of_tours: Optional[int]
-    count_of_activities: Optional[int]
-    count_of_alerts: Optional[int]
-    count_of_campgrounds: Optional[int]
 
 class Activity(BaseModel):
     activity_id: str
