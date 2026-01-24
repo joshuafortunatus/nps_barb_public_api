@@ -45,6 +45,7 @@ class Park(BaseModel):
 class Activity(BaseModel):
     activity_id: str
     activity_title: str
+    activity_type: Optional[str]
     short_description: Optional[str]
     long_description: Optional[str]
     activity_url: Optional[str]
