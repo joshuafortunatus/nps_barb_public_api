@@ -236,7 +236,7 @@ async def get_activities(
 ):
     """Get park activities"""
     query = f"""
-    SELECT activity_id, activity_title, short_description, long_description, 
+    SELECT activity_id, activity_title, activity_type, short_description, long_description, 
            activity_url, duration, trail_miles, trail_length_full, fee_description,
            park_code, park_short_name, park_full_name, activity_image_caption, activity_image_url
     FROM `{DATASET}.nps__mart_national_park_activities`
