@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png" alt="BARB Logo" width="200">
+</p>
+
 # BARB API
 
 [![API Status](https://img.shields.io/badge/status-live-brightgreen)](https://barb-api-658225020507.us-central1.run.app/docs)
