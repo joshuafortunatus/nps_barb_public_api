@@ -3,6 +3,8 @@
 [![API Status](https://img.shields.io/badge/status-live-brightgreen)](https://barb-api-658225020507.us-central1.run.app/docs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Google Cloud Run](https://img.shields.io/badge/Cloud%20Run-4285F4?logo=google-cloud&logoColor=white)](https://cloud.google.com/run)
 
 Browser for Adventuring, Recreation, and Backpacking - A public API for National Parks Service data.
 
@@ -11,6 +13,8 @@ Browser for Adventuring, Recreation, and Backpacking - A public API for National
 🔗 **API Base URL:** https://barb-api-658225020507.us-central1.run.app
 
 📚 **Interactive Documentation:** https://barb-api-658225020507.us-central1.run.app/docs
+
+🌲 **Web App:** https://barbnps.com
 
 ## Overview
 
@@ -42,12 +46,12 @@ curl https://barb-api-658225020507.us-central1.run.app/parks
 
 Get a specific park:
 ```bash
-curl https://barb-api-658225020507.us-central1.run.app/parks/YOSE
+curl https://barb-api-658225020507.us-central1.run.app/parks/yose
 ```
 
 Get alerts for Yosemite:
 ```bash
-curl https://barb-api-658225020507.us-central1.run.app/alerts?park_code=YOSE
+curl https://barb-api-658225020507.us-central1.run.app/alerts?park_code=yose
 ```
 
 ### Python
@@ -59,11 +63,11 @@ response = requests.get('https://barb-api-658225020507.us-central1.run.app/parks
 parks = response.json()
 
 # Get specific park
-response = requests.get('https://barb-api-658225020507.us-central1.run.app/parks/YOSE')
+response = requests.get('https://barb-api-658225020507.us-central1.run.app/parks/yose')
 yosemite = response.json()
 
 # Get campgrounds for a park
-response = requests.get('https://barb-api-658225020507.us-central1.run.app/campgrounds?park_code=YOSE')
+response = requests.get('https://barb-api-658225020507.us-central1.run.app/campgrounds?park_code=yose')
 campgrounds = response.json()
 ```
 
@@ -75,7 +79,7 @@ fetch('https://barb-api-658225020507.us-central1.run.app/parks')
   .then(data => console.log(data));
 
 // Get specific park
-fetch('https://barb-api-658225020507.us-central1.run.app/parks/YOSE')
+fetch('https://barb-api-658225020507.us-central1.run.app/parks/yose')
   .then(response => response.json())
   .then(data => console.log(data));
 
@@ -89,11 +93,14 @@ async function getCampgrounds(parkCode) {
 
 ## Response Format
 
-All endpoints return JSON. Example response from `/parks/YOSE`:
+All endpoints return JSON.
+
+### Park Response
+`GET /parks/yose`
 ```json
 {
   "park_id": "77E0D7F0-1942-494A-ACE2-9004D2BDC59E",
-  "park_code": "YOSE",
+  "park_code": "yose",
   "park_short_name": "Yosemite",
   "park_full_name": "Yosemite National Park",
   "park_description": "Not just a great valley, but a shrine to human foresight...",
@@ -106,9 +113,18 @@ All endpoints return JSON. Example response from `/parks/YOSE`:
 }
 ```
 
+### Error Responses
+```json
+{
+  "detail": "Park not found"
+}
+```
+- `404` - Resource not found
+- `422` - Validation error (invalid parameters)
+
 ### Query Parameters
 
-- `park_code` - Filter by specific park (e.g., `YOSE`, `GRCA`)
+- `park_code` - Filter by specific park (lowercase, e.g., `yose`, `grca`, `zion`)
 - `limit` - Maximum number of results (default: 100, max: 1000)
 - `category` - Filter alerts by category (alerts endpoint only)
 - `emergency_only` - Boolean to show only emergency alerts (alerts endpoint only)
@@ -118,7 +134,6 @@ All endpoints return JSON. Example response from `/parks/YOSE`:
 - **No authentication required** - The API is publicly accessible
 - **No rate limits** - Currently no rate limiting enforced
 - **Best practices** - Please cache responses when possible to reduce load
-- **Data freshness** - Data is refreshed daily from NPS sources
 
 ## Local Development
 
@@ -166,7 +181,7 @@ Please ensure your code follows the existing style and includes appropriate docu
 
 ## Data Source
 
-Data is primarily sourced from the National Parks Service API, with some data manually imbued.
+Data is primarily sourced from the National Parks Service API, with some data manually curated.
 
 ## License
 
