@@ -104,12 +104,37 @@ All endpoints return JSON.
   "park_short_name": "Yosemite",
   "park_full_name": "Yosemite National Park",
   "park_description": "Not just a great valley, but a shrine to human foresight...",
+  "full_address": "Yosemite National Park, CA",
+  "google_maps_url": "https://maps.google.com/...",
+  "apple_maps_url": "https://maps.apple.com/...",
   "latitude": 37.8651,
   "longitude": -119.5383,
   "park_url": "https://www.nps.gov/yose/index.htm",
-  "count_of_campgrounds": 13,
-  "count_of_activities": 45,
-  "count_of_alerts": 3
+  "plan_your_visit_url": "https://www.nps.gov/yose/planyourvisit/index.htm",
+  "park_image_title": "Yosemite Valley",
+  "park_image_caption": "View of Yosemite Valley from Tunnel View",
+  "park_image_url": "https://www.nps.gov/...",
+  "amenities_json": "{...}"
+}
+```
+
+### Hike Response
+`GET /hikes?park_code=yose`
+```json
+{
+  "hike_id": "abc123",
+  "hike_name": "Mist Trail",
+  "hike_description": "One of the most popular hikes in the park...",
+  "hike_url": "https://www.nps.gov/...",
+  "hike_duration": "4-6 hours",
+  "hike_distance": "5.4 miles",
+  "hike_difficulty": "Strenuous",
+  "length_category": "Medium",
+  "park_code": "yose",
+  "park_short_name": "Yosemite",
+  "park_full_name": "Yosemite National Park",
+  "hike_image_url": "https://www.nps.gov/...",
+  "accessible_status": "Unknown"
 }
 ```
 
