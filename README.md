@@ -122,26 +122,6 @@ All endpoints return JSON.
 }
 ```
 
-### Hike Response
-`GET /hikes?park_code=yose`
-```json
-{
-  "hike_id": "abc123",
-  "hike_name": "Mist Trail",
-  "hike_description": "One of the most popular hikes in the park...",
-  "hike_url": "https://www.nps.gov/...",
-  "hike_duration": "4-6 hours",
-  "hike_distance": "5.4 miles",
-  "hike_difficulty": "Strenuous",
-  "length_category": "Medium",
-  "park_code": "yose",
-  "park_short_name": "Yosemite",
-  "park_full_name": "Yosemite National Park",
-  "hike_image_url": "https://www.nps.gov/...",
-  "accessible_status": "Unknown"
-}
-```
-
 ### Error Responses
 ```json
 {
