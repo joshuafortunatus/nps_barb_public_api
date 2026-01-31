@@ -190,7 +190,7 @@ Please ensure your code follows the existing style and includes appropriate docu
 
 ## Data Source
 
-Data is primarily sourced from the National Parks Service API, with some data manually curated.
+Data is primarily sourced from the National Parks Service API and the recreation.gov API, with some data manually curated.
 
 ## License
 
