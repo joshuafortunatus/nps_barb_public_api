@@ -115,6 +115,7 @@ class Hike(BaseModel):
     hike_duration: Optional[str]
     hike_distance: Optional[str]
     hike_difficulty: Optional[str]
+    length_category: Optional[str]
     park_code: str
     park_short_name: Optional[str]
     park_full_name: Optional[str]
